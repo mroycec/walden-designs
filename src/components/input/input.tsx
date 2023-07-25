@@ -63,6 +63,7 @@ const TextInput = ({
             )}
             <div className="relative">
                 <input
+                    name={name || "input"}
                     type={type}
                     aria-label={label}
                     value={data}
