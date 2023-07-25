@@ -11,12 +11,14 @@ export default function Home() {
             🌱🎒🧵🌿🌞🏕️🐌 <br /> Walden Designs
           </h2>
           <form className="space-y-8 flex flex-col justify-center" data-netlify="true" name="email-list" method="POST" action="/confirmation">
+            <input type="hidden" name="form-name" value="email-list" />
             <p className="text-tint-900 text-sm md:text-md lg:text-lg text-wrap">
               Sign up for our email list for notifications on launch.
             </p>
             <Input
+              form="email-list"
               type="email"
-              name="form-name"
+              name="email"
               label="Email"
               placeholder='Email'
             />
