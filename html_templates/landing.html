@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
+    <title>ChershireCat</title>
+</head>
+
+<body class="h-screen bg-gray-800 flex items-center justify-center">
+    <div class="w-full max-w-md">
+        <form method="post" action="/sign_up" class="rounded-md px-8 pt-6 pb-8 mb-4 bg-gray-900 text-white">
+            <img src="https://res.cloudinary.com/dy6gzqv4a/image/upload/v1671676173/CheshireCatTransparent_toaxs1.png"
+                alt="CC logo" class="block mx-auto mb-4" width="50%" height="100">
+            <h1 class="text-3xl font-bold text-center mb-4">CheshireCat</h1>
+            <p class="text-center mb-4">Sign up for our waitlist to be notified when we launch!</p>
+            <div class="mb-4">
+                <label class="block text-sm font-bold mb-2" for="name">
+                    Name
+                </label>
+                <input name="user_name"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline text-white bg-gray-900"
+                    id="name" type="text" placeholder="Your name">
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-bold mb-2" for="email">
+                    Email
+                </label>
+                <input name="user_email"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline text-white bg-gray-900"
+                    id="email" type="email" placeholder="Your email">
+            </div>
+            <div class="flex items-center justify-between">
+                <button
+                    class="bg-purple-800 hover:bg-purple-700 active:bg-puple-600 mx-auto text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    type="submit">
+                    Sign Up
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,3 +1,11 @@
+# Welcome to Walden Designs
+This web application is to serve as the consumer facing portal for browsing and purchasing products from Walden Designs.
+- The goal of this application is to allow for the codeless addition, modification, and removal of content from the store and the site without having to write code.
+- The application also intends to host content such as blog posts, visual art, and other embedded content.
+
+# About
+Walden Designs is a company dedicated to the creation of products and art for a sustainable future.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
