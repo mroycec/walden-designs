@@ -1,7 +1,10 @@
+"use client"
+import { ChangeEvent, SetStateAction, useState } from 'react'
 import Button from '../components/button/button'
 import Input from '../components/input/input'
 
 export default function Home() {
+  const [email, setEmail] = useState('')
 
   return (
     <div className="fixed w-screen h-screen bg-cover bg-bottom bg-fog">
@@ -21,8 +24,11 @@ export default function Home() {
               name="email"
               label="Email"
               placeholder='Email'
-            />
-            <Button type="submit" id="sign up">Sign up</Button>
+              value={email}
+              setValue={setEmail}
+              onSubmit={e => setEmail(e.currentTarget.value)}
+              />
+            <Button type="submit" id="sign up" disabled={!email}>Sign up</Button>
           </form>
         </div>
       </div>

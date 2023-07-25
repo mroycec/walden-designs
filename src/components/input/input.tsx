@@ -4,8 +4,8 @@ import { useState, FocusEventHandler, ChangeEventHandler, HTMLAttributes, SetSta
 type TextInputProps = HTMLAttributes<HTMLInputElement> & {
     name?: string;
     label?: string;
-    placeholder?: string;
     value?: string;
+    setValue?: (e: SetStateAction<string>) => void;
     onChange?: ChangeEventHandler<HTMLInputElement>;
     onBlur?: FocusEventHandler<HTMLInputElement>;
     onFocus?: FocusEventHandler<HTMLInputElement>;
@@ -20,8 +20,8 @@ type TextInputProps = HTMLAttributes<HTMLInputElement> & {
 const TextInput = ({
     name,
     label,
-    placeholder,
     value,
+    setValue,
     onChange,
     onBlur,
     onFocus,
@@ -38,6 +38,7 @@ const TextInput = ({
 
     const handleChange = (onChange) ? onChange : (event: { target: { value: SetStateAction<string>; }; }) => {
         setData(event.target.value);
+        (setValue) && setValue(event.target.value);
     };
 
     const handleFocus: FocusEventHandler<HTMLInputElement> = (e) => {
