@@ -1,10 +1,9 @@
 "use client"
-import { useState, FocusEventHandler, ChangeEventHandler } from 'react';
+import { useState, FocusEventHandler, ChangeEventHandler, InputHTMLAttributes } from 'react';
 
-type TextInputProps = JSX.IntrinsicAttributes & {
+type TextInputProps = InputHTMLAttributes<HTMLInputElement> & {
     name?: string;
     label?: string;
-    placeholder?: string;
     value?: string;
     onChange?: ChangeEventHandler<HTMLInputElement>;
     onBlur?: FocusEventHandler<HTMLInputElement>;
@@ -13,13 +12,11 @@ type TextInputProps = JSX.IntrinsicAttributes & {
     required?: boolean;
     error?: string;
     validated?: boolean;
-    type?: 'text' | 'password' | 'email' | 'number' | 'date'
 };
 
 const TextInput = ({
     name,
     label,
-    placeholder,
     value,
     onChange,
     onBlur,
@@ -55,17 +52,12 @@ const TextInput = ({
             )}
             <div className="relative">
                 <input
-                    type="text"
-                    id='input'
-                    name={name}
-                    placeholder={placeholder}
                     value={value}
                     onChange={onChange}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
-                    disabled={disabled}
                     required={required}
-                    {...rest}
+                    disabled={disabled}
                     className={`
             w-full px-4 py-2 rounded-lg border ${focused
                         ? 'border-tint-700 focus:drop-shadow focus:outline-none placeholder-tint-300'
@@ -80,8 +72,9 @@ const TextInput = ({
                             : ''
                         }
             `//dark:bg-tint-800 dark:text-tint-300 dark:border-tint-600
-
           }
+                    {...rest}
+
                 />
                 {error && (
                     <div className="absolute inset-y-0 right-0 flex items-center pr-4">
