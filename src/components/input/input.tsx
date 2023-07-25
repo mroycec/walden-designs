@@ -1,7 +1,8 @@
 "use client"
 import { useState, FocusEventHandler, ChangeEventHandler } from 'react';
 
-type TextInputProps = {
+type TextInputProps = JSX.IntrinsicAttributes & {
+    name?: string;
     label?: string;
     placeholder?: string;
     value?: string;
@@ -12,9 +13,11 @@ type TextInputProps = {
     required?: boolean;
     error?: string;
     validated?: boolean;
+    type?: 'text' | 'password' | 'email' | 'number' | 'date'
 };
 
 const TextInput = ({
+    name,
     label,
     placeholder,
     value,
@@ -25,6 +28,7 @@ const TextInput = ({
     required,
     error,
     validated,
+    ...rest
 }: TextInputProps) => {
     const [focused, setFocused] = useState(false);
 
@@ -52,8 +56,8 @@ const TextInput = ({
             <div className="relative">
                 <input
                     type="text"
-                    id="input"
-                    name="input"
+                    id='input'
+                    name={name}
                     placeholder={placeholder}
                     value={value}
                     onChange={onChange}
@@ -61,6 +65,7 @@ const TextInput = ({
                     onBlur={handleBlur}
                     disabled={disabled}
                     required={required}
+                    {...rest}
                     className={`
             w-full px-4 py-2 rounded-lg border ${focused
                         ? 'border-tint-700 focus:drop-shadow focus:outline-none placeholder-tint-300'
