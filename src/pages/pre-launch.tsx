@@ -21,11 +21,7 @@ export default function Home() {
               placeholder='Email address'
             />
             <Button type="submit">Sign up</Button>
-          </form> :
-          <div className="space-y-8 flex flex-col justify-center">
-            <h1 className="text-lg md:text-xl lg:text-2xl text-center">You&apos;re on the list!</h1>
-            <p className="text-sm md:text-md lg:text-lg text-center text-wrap">We&apos;ll keep you posted on what&apos;s in the works.</p>
-          </div>
+          </form>
         </div>
       </div>
     </div>
