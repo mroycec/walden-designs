@@ -1,7 +1,10 @@
+"use client"
+import { useState } from 'react'
 import Button from '../components/button/button'
 import Input from '../components/input/input'
 
 export default function Home() {
+  const [email, setEmail] = useState('')
 
   return (
     <div className="fixed w-screen h-screen bg-cover bg-bottom bg-fog">
@@ -21,6 +24,7 @@ export default function Home() {
               name="email"
               label="Email"
               placeholder='Email'
+              value={email}
             />
             <Button type="submit" id="sign up">Sign up</Button>
           </form>
