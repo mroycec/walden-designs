@@ -20,7 +20,7 @@ export default function Home() {
             🌱🎒🧵🌿🌞🏕️🐌 <br /> Walden Designs
           </h2>
           {!isSubmitted ? 
-          <form className="space-y-8 flex flex-col justify-center" onSubmit={(event) => handleSubmit(event)} data-netlify="true">
+          <form className="space-y-8 flex flex-col justify-center" onSubmit={(event) => handleSubmit(event)} data-netlify="true" name="email-list">
             <p className="text-tint-900 text-sm md:text-md lg:text-lg text-wrap">
               Sign up for our email list for notifications on launch.
             </p>
