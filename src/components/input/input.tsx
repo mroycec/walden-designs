@@ -13,8 +13,8 @@ type TextInputProps = HTMLAttributes<HTMLInputElement> & {
     required?: boolean;
     error?: string;
     validated?: boolean;
-    type?: 'text' | 'password' | 'email' | 'number' | 'date'
     form?: string;
+    type?: 'text' | 'password' | 'email' | 'number' | 'date'
 };
 
 const TextInput = ({
@@ -30,6 +30,7 @@ const TextInput = ({
     error,
     validated,
     form,
+    type,
     ...rest
 }: TextInputProps) => {
     const [data, setData] = useState(value || '');
@@ -62,11 +63,8 @@ const TextInput = ({
             )}
             <div className="relative">
                 <input
-                    type="text"
-                    form={form}
-                    id='input'
-                    name={name}
-                    placeholder={placeholder}
+                    type={type}
+                    aria-label={label}
                     value={data}
                     onChange={handleChange}
                     onFocus={handleFocus}
