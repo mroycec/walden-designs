@@ -1,10 +1,12 @@
+import { FormEvent, MouseEvent } from 'react'
 import Button from '../components/button/button'
 import Input from '../components/input/input'
 import { useRouter } from 'next/router'
 
 export default function Home() {
   const router = useRouter()
-  const handleClick = () => {
+  const handleSubmit = (event?: FormEvent) => {
+    event?.preventDefault()
     router.push('/confirmation')
   }
 
@@ -15,7 +17,7 @@ export default function Home() {
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-main-bold text-tint-900 mb-4 text-center">
             🌱🎒🧵🌿🌞🏕️🐌 <br /> Walden Designs
           </h2>
-          <div className="space-y-8 flex flex-col justify-center">
+          <form className="space-y-8 flex flex-col justify-center" onSubmit={(event) => handleSubmit(event)}>
             <p className="text-tint-900 text-sm md:text-md lg:text-lg text-wrap">
               Sign up for our email list for notifications on launch.
             </p>
@@ -23,8 +25,8 @@ export default function Home() {
               validated={false}
               placeholder='Email address'
             />
-            <Button onClick={handleClick}>Sign up</Button>
-          </div>
+            <Button onClick={handleSubmit}>Sign up</Button>
+          </form>
         </div>
       </div>
     </div>
