@@ -10,7 +10,7 @@ export default function Home() {
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-main-bold text-tint-900 mb-4 text-center">
             🌱🎒🧵🌿🌞🏕️🐌 <br /> Walden Designs
           </h2>
-          <form className="space-y-8 flex flex-col justify-center" data-netlify="true" name="email-list" id="email-list">
+          <form className="space-y-8 flex flex-col justify-center" data-netlify="true" name="email-list" id="email-list" action='/confirmation'>
             <p className="text-tint-900 text-sm md:text-md lg:text-lg text-wrap">
               Sign up for our email list for notifications on launch.
             </p>
@@ -21,7 +21,7 @@ export default function Home() {
               label="Email"
               placeholder='Email'
             />
-            <Button type="submit">Sign up</Button>
+            <Button type="submit" id="sign up">Sign up</Button>
           </form>
         </div>
       </div>
