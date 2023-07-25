@@ -14,6 +14,7 @@ type TextInputProps = HTMLAttributes<HTMLInputElement> & {
     error?: string;
     validated?: boolean;
     type?: 'text' | 'password' | 'email' | 'number' | 'date'
+    form?: string;
 };
 
 const TextInput = ({
@@ -28,6 +29,7 @@ const TextInput = ({
     required,
     error,
     validated,
+    form,
     ...rest
 }: TextInputProps) => {
     const [data, setData] = useState(value || '');
@@ -61,6 +63,7 @@ const TextInput = ({
             <div className="relative">
                 <input
                     type="text"
+                    form={form}
                     id='input'
                     name={name}
                     placeholder={placeholder}

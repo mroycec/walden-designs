@@ -15,6 +15,7 @@ export default function Home() {
               Sign up for our email list for notifications on launch.
             </p>
             <Input
+              form="email-list"
               type="email"
               name="email"
               id="email"
