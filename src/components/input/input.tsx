@@ -1,9 +1,10 @@
 "use client"
-import { useState, FocusEventHandler, ChangeEventHandler, InputHTMLAttributes } from 'react';
+import { useState, FocusEventHandler, ChangeEventHandler, HTMLAttributes, SetStateAction } from 'react';
 
-type TextInputProps = InputHTMLAttributes<HTMLInputElement> & {
+type TextInputProps = HTMLAttributes<HTMLInputElement> & {
     name?: string;
     label?: string;
+    placeholder?: string;
     value?: string;
     onChange?: ChangeEventHandler<HTMLInputElement>;
     onBlur?: FocusEventHandler<HTMLInputElement>;
@@ -12,11 +13,13 @@ type TextInputProps = InputHTMLAttributes<HTMLInputElement> & {
     required?: boolean;
     error?: string;
     validated?: boolean;
+    type?: 'text' | 'password' | 'email' | 'number' | 'date'
 };
 
 const TextInput = ({
     name,
     label,
+    placeholder,
     value,
     onChange,
     onBlur,
@@ -27,7 +30,12 @@ const TextInput = ({
     validated,
     ...rest
 }: TextInputProps) => {
+    const [data, setData] = useState(value || '');
     const [focused, setFocused] = useState(false);
+
+    const handleChange = (onChange) ? onChange : (event: { target: { value: SetStateAction<string>; }; }) => {
+        setData(event.target.value);
+    };
 
     const handleFocus: FocusEventHandler<HTMLInputElement> = (e) => {
         setFocused(true);
@@ -52,12 +60,16 @@ const TextInput = ({
             )}
             <div className="relative">
                 <input
-                    value={value}
-                    onChange={onChange}
+                    type="text"
+                    id='input'
+                    name={name}
+                    placeholder={placeholder}
+                    value={data}
+                    onChange={handleChange}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
-                    required={required}
                     disabled={disabled}
+                    required={required}
                     className={`
             w-full px-4 py-2 rounded-lg border ${focused
                         ? 'border-tint-700 focus:drop-shadow focus:outline-none placeholder-tint-300'
@@ -72,9 +84,9 @@ const TextInput = ({
                             : ''
                         }
             `//dark:bg-tint-800 dark:text-tint-300 dark:border-tint-600
-          }
-                    {...rest}
 
+          }
+                {...rest}
                 />
                 {error && (
                     <div className="absolute inset-y-0 right-0 flex items-center pr-4">
