@@ -26,7 +26,6 @@ export default function Home() {
               placeholder='Email'
               value={email}
               setValue={setEmail}
-              onSubmit={e => setEmail(e.currentTarget.value)}
               />
             <Button type="submit" id="sign up" disabled={!email}>Sign up</Button>
           </form>
