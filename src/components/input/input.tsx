@@ -15,6 +15,7 @@ type TextInputProps = HTMLAttributes<HTMLInputElement> & {
     validated?: boolean;
     form?: string;
     type?: 'text' | 'password' | 'email' | 'number' | 'date'
+    className?: string
 };
 
 const TextInput = ({
@@ -31,6 +32,7 @@ const TextInput = ({
     validated,
     form,
     type,
+    className,
     ...rest
 }: TextInputProps) => {
     const [data, setData] = useState(value || '');
@@ -52,7 +54,7 @@ const TextInput = ({
     };
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col w-full h-full">
             {label && (
                 <label
                     htmlFor="input"
@@ -73,7 +75,7 @@ const TextInput = ({
                     onBlur={handleBlur}
                     disabled={disabled}
                     required={required}
-                    className={`
+                    className={`${className}
             w-full px-4 py-2 rounded-lg border ${focused
                         ? 'border-tint-700 focus:drop-shadow focus:outline-none placeholder-tint-300'
                             : error

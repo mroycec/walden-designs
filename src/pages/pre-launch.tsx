@@ -1,5 +1,5 @@
 "use client"
-import { ChangeEvent, SetStateAction, useState } from 'react'
+import { useState } from 'react'
 import Button from '../components/button/button'
 import Input from '../components/input/input'
 import Head from 'next/head'

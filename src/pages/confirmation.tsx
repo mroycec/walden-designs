@@ -1,6 +1,3 @@
-import Button from '../components/button/button'
-import Input from '../components/input/input'
-
 export default function Home() {
   return (
     <div className="fixed w-screen h-screen bg-cover bg-bottom bg-fog">
