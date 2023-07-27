@@ -26,7 +26,7 @@ const TopMenuBar = () => {
                     <button className="md:hidden px-3 py-2 font-semibold text-tint-600 hover:text-gray-900" onClick={() => setMobileMenuHidden(!mobileMenuHidden)}>Menu</button>
                 </div>
             </header >
-            <div className={`${mobileMenuHidden ? "hidden" : ""} bg-tint-300 md:hidden shadow-md absolute top-16 left-0 right-0 z-50" id="mobileMenu`}>
+            <div className={`${mobileMenuHidden ? "hidden" : ""} bg-tint-300 md:hidden shadow-md absolute top-16 left-0 right-0 z-50`} id="mobileMenu">
                 <div className="container mx-auto h-full flex flex-col justify-between px-6 py-6">
                     <nav>
                         <Link href="/home" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Home</Link>

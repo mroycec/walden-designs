@@ -6,6 +6,7 @@ import { Product } from '@/interfaces/Product'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import TopNavLayout from '@/components/topNavLayout/topNavLayout'
 
 const Login = () => {
     const router = useRouter()
@@ -34,15 +35,13 @@ const Login = () => {
         }
     }
     return (
-        <div className="bg-tint-100 h-screen fixed overflow-auto" >
-            <TopMenuBar />
-        <GradientModal className="py-0 md:py-0 lg:py-0 xl:py-0 rounded-none" corners>
+        <TopNavLayout>
             <div className="w-full justify-center items-center flex flex-col space-y-8">
                 <br className="border-2 border-tint-900" />
                 <div className="overflow-y-auto overflow-x-hidden flex-wrap flex items-center justify-center">
                     {products && products.length > 0 && products.map((product, index) => (
                         <div key={index} className="text-center flex flex-col space-y-4 p-4 items-center justify-center">
-                            <Image className="w-64 h-64 stretch flex flex-col p-8 flex-grow flex-shrink" src={product.images && product.images[0]} alt={product.name} />
+                            <Image width={100} height={100} className="w-64 h-64 stretch flex flex-col p-8 flex-grow flex-shrink" src={product.images && product.images[0]} alt={product.name} />
                             <h1>{product.name}</h1>
                             <Button className="" onClick={() => {router.push(`/product-details?prdouct=${product.id}`)}}>View Details</Button>
                         </div>
@@ -51,8 +50,7 @@ const Login = () => {
                 </div>
                 <Button className="" onClick={() => router.push('/checkout')}>Checkout</Button>
             </div>
-        </GradientModal>
-        </div>
+        </TopNavLayout>
     )
 }
 
