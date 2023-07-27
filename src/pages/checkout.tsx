@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { Elements, PaymentElement } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { useRouter } from 'next/router';
+import GradientModal from '@/components/gradientModal/gradientModal';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
@@ -39,13 +40,9 @@ const Login = () => {
     }
     
     return (
-        <div className="w-screen min-h-screen overflow-y-auto px-32 py-16 justify-center items-center inline-flex bg-theme-gradient">
-            <div className="w-full bg-stone-100 rounded-lg backdrop-blur-sm justify-center items-center p-4 overflow-y-auto flex flex-col space-y-8">
-                <div className="overflow-y-auto overflow-x-hidden flex-wrap flex items-center justify-center">
-                </div>
+            <GradientModal>
                 <Button className="" onClick={() => handleCheckout(products)}>Checkout</Button>
-            </div>
-        </div>
+            </GradientModal>
     )
 }
 

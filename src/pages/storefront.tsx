@@ -41,7 +41,7 @@ const Login = () => {
                         <div key={index} className="text-center flex flex-col space-y-4 p-4 items-center justify-center">
                             <img className="w-64 h-64 stretch flex flex-col p-8 flex-grow flex-shrink" src={product.images && product.images[0]} alt={products && products[0] && products[0].name} />
                             <h1>{product.name}</h1>
-                            <Button className="" onClick={() => { }}>View Details</Button>
+                            <Button className="" onClick={() => {router.push(`/product-details?prdouct=${product.id}`)}}>View Details</Button>
                         </div>
 
                     ))}
