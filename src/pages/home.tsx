@@ -33,7 +33,10 @@ const Landing = () => {
                 </section>
             </div>
         </div>
+
     )
 }
 
 export default Landing
+
+

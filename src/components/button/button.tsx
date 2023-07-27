@@ -2,7 +2,7 @@ import React, { ButtonHTMLAttributes } from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'primary' | 'secondary' | 'outline' | 'text';
-    size?: 'sm' | 'md' | 'lg';
+    size?: 'sm' | 'md' | 'lg' | 'scale';
     disabled?: boolean;
 }
 
@@ -31,6 +31,7 @@ const Button: React.FC<ButtonProps> = ({
         case 'text':
             colorClasses = 'text-gray-500 hover:text-blue-500';
             break;
+            
         default:
             break;
     }
@@ -44,6 +45,10 @@ const Button: React.FC<ButtonProps> = ({
             break;
         case 'lg':
             sizeClasses = 'py-3 px-6 text-lg';
+            break;
+        case 'scale':
+            // Here, we use @media to set different sizes based on screen width
+            sizeClasses = 'py-1 px-2 md:py-2 md:px-4 lg:py-3 lg:px-6 text-sm md:text-base lg:text-lg';
             break;
         default:
             break;
