@@ -58,7 +58,7 @@ const TextInput = ({
             {label && (
                 <label
                     htmlFor="input"
-                    className="mb-2 font-medium text-tint-900 dark:text-gray-300"
+                    className="mb-2 font-medium text-tint-900" //dark:text-gray-300
                 >
                     {label}
                     {required && <span className="text-red-500">*</span>}

@@ -7,6 +7,7 @@ const Login = () => {
     return (
         <GradientModal>
             <h1 className="text-4xl default p-8 text-center">Walden Designs</h1>
+            <h2 className="">{}</h2>
         </GradientModal>
     )
 }
