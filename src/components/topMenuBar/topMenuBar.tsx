@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react"
 import { useRouter } from "next/router"
+import Link from "next/link"
 
 const TopMenuBar = () => {
     const router = useRouter()
@@ -13,14 +14,14 @@ const TopMenuBar = () => {
                     <h1 className="text-2xl text-center">Walden Designs</h1>
                 </div>
                 <div className="h-full w-full flex items-center justify-between p-4">
-                    <a href="#" className="block">
+                    <Link href="#" className="block">
                         <img src="/images/cloud.png" alt="Cloud"
                             className="h-8" />
-                    </a>
+                    </Link>
                     <nav className="hidden md:block" id="navigationMenu">
-                        <a href="/home" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Home</a>
-                        <a href="/shop" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Shop</a>
-                        <a href="#" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Blog</a>
+                        <Link href="/home" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Home</Link>
+                        <Link href="/shop" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Shop</Link>
+                        <Link href="#" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Blog</Link>
                     </nav>
                     <button className="md:hidden px-3 py-2 font-semibold text-tint-600 hover:text-gray-900" onClick={() => setMobileMenuHidden(!mobileMenuHidden)}>Menu</button>
                 </div>
@@ -28,9 +29,9 @@ const TopMenuBar = () => {
             <div className={`${mobileMenuHidden ? "hidden" : ""} bg-tint-300 md:hidden shadow-md absolute top-16 left-0 right-0 z-50" id="mobileMenu`}>
                 <div className="container mx-auto h-full flex flex-col justify-between px-6 py-6">
                     <nav>
-                        <a href="/home" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Home</a>
-                        <a href="/shop" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Shop</a>
-                        <a href="#" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Blog</a>
+                        <Link href="/home" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Home</Link>
+                        <Link href="/shop" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Shop</Link>
+                        <Link href="#" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Blog</Link>
                     </nav>
                 </div>
             </div>
