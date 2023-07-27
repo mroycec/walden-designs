@@ -1,18 +1,15 @@
 "use client"
 import Button from '@/components/button/button'
-import GradientModal from '@/components/gradientModal/gradientModal'
-import TopMenuBar from '@/components/topMenuBar/topMenuBar'
 import { Product } from '@/interfaces/Product'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import TopNavLayout from '@/components/topNavLayout/topNavLayout'
 
-const Login = () => {
+const Shop = () => {
     const router = useRouter()
     const [products, setProducts] = useState<Product[]>([])
 
-    
     useEffect(() => {
         getProducts()
     }, [])
@@ -43,7 +40,7 @@ const Login = () => {
                         <div key={index} className="text-center flex flex-col space-y-4 p-4 items-center justify-center">
                             <Image width={100} height={100} className="w-64 h-64 stretch flex flex-col p-8 flex-grow flex-shrink" src={product.images && product.images[0]} alt={product.name} />
                             <h1>{product.name}</h1>
-                            <Button className="" onClick={() => {router.push(`/product-details?prdouct=${product.id}`)}}>View Details</Button>
+                            <Button className="" onClick={() => {router.push(`/product-details?product=${product.id}`)}}>View Details</Button>
                         </div>
 
                     ))}
@@ -54,4 +51,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Shop

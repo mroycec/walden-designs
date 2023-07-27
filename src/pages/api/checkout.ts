@@ -10,7 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     // Set appropriate headers if needed (e.g., CORS headers, content-type, etc.)
     res.setHeader('Content-Type', 'application/json');
     
-    const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+    const stripe = require('stripe')(process.env.STRIPE_API_KEY);
     try {
         const checkout = await stripe.checkout.sessions.list(req.body.cart)
         // Process the products data as needed

@@ -26,14 +26,13 @@ const Landing = () => {
                         <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
                             <div className="bg-tint-300 p-8 rounded-lg shadow-lg h-full">
                                 <h3 className="text-2xl font-bold mb-4">Sustainable</h3>
-                                <p className="text-tint-900 mb-4">We care about the environment and the impact of our products on it. That’s why we follow the leave-no-trace principle, which means that we minimize our footprint on nature and respect its beauty and diversity. We also use eco-friendly materials and practices, such as organic cotton, recycled polyester, natural dyes, biodegradable packaging, and carbon-neutral shipping.</p>
+                                <p className="text-tint-900 mb-4">We care about the environment and the impact of our products on it. That&apos;s why we follow the leave-no-trace principle, which means that we minimize our footprint on nature and respect its beauty and diversity. We also use eco-friendly materials and practices, such as organic cotton, recycled polyester, natural dyes, biodegradable packaging, and carbon-neutral shipping.</p>
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
         </div>
-
     )
 }
 

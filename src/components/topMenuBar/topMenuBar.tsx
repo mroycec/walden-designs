@@ -4,9 +4,7 @@ import { useRouter } from "next/router"
 import Link from "next/link"
 
 const TopMenuBar = () => {
-    const router = useRouter()
     const [mobileMenuHidden, setMobileMenuHidden] = useState(true)
-
     return (
         <>
             <header className="bg-tint-200 shadow-md fixed top-0 left-0 right-0 z-50 h-16" >
