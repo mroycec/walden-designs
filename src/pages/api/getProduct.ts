@@ -11,7 +11,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   try {
     // Retrieve the 'id' from the query parameters
     const { id } = req.query;
-    console.log(id)
     
     // Check if 'id' is provided in the request
     if (!id || typeof id !== 'string') {
@@ -20,10 +19,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
     // Use the 'id' parameter in the Stripe API request
     const product = await stripe.products.retrieve(id);
-    console.log(product);
-    
+
     // Process the products data as needed
-    return res.status(200).json(product.data);
+    return res.status(200).json(product);
 
   } catch (error: any) {
     // Handle errors

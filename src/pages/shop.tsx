@@ -40,7 +40,7 @@ const Shop = () => {
                         <div key={index} className="text-center flex flex-col space-y-4 p-4 items-center justify-center">
                             <Image width={100} height={100} className="w-64 h-64 stretch flex flex-col p-8 flex-grow flex-shrink" src={product.images && product.images[0]} alt={product.name} />
                             <h1>{product.name}</h1>
-                            <Button className="" onClick={() => {router.push(`/product-details?product=${product.id}`)}}>View Details</Button>
+                            <Button className="" onClick={() => {router.push(`/product-details?product_id=${product.id}`)}}>View Details</Button>
                         </div>
 
                     ))}
