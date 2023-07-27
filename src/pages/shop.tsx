@@ -5,6 +5,7 @@ import TopMenuBar from '@/components/topMenuBar/topMenuBar'
 import { Product } from '@/interfaces/Product'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 const Login = () => {
     const router = useRouter()
@@ -41,7 +42,7 @@ const Login = () => {
                 <div className="overflow-y-auto overflow-x-hidden flex-wrap flex items-center justify-center">
                     {products && products.length > 0 && products.map((product, index) => (
                         <div key={index} className="text-center flex flex-col space-y-4 p-4 items-center justify-center">
-                            <img className="w-64 h-64 stretch flex flex-col p-8 flex-grow flex-shrink" src={product.images && product.images[0]} alt={products && products[0] && products[0].name} />
+                            <Image className="w-64 h-64 stretch flex flex-col p-8 flex-grow flex-shrink" src={product.images && product.images[0]} alt={product.name} />
                             <h1>{product.name}</h1>
                             <Button className="" onClick={() => {router.push(`/product-details?prdouct=${product.id}`)}}>View Details</Button>
                         </div>
