@@ -1,9 +1,11 @@
-import React, { ButtonHTMLAttributes } from 'react';
+"use client"
+import React, { ButtonHTMLAttributes, useState } from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'primary' | 'secondary' | 'outline' | 'text';
     size?: 'sm' | 'md' | 'lg' | 'scale';
     disabled?: boolean;
+    handleClick?: () => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -12,6 +14,7 @@ const Button: React.FC<ButtonProps> = ({
     variant = 'primary',
     size = 'md',
     disabled = false,
+    handleClick = () => {},
     ...rest
 }) => {
     let colorClasses = '';
@@ -26,10 +29,10 @@ const Button: React.FC<ButtonProps> = ({
             colorClasses = 'bg-secondary hover:bg-secondaryDark text-tint-300';
             break;
         case 'outline':
-            colorClasses = 'border border-gray-500 hover:border-blue-500 text-gray-500 hover:text-blue-500';
+            colorClasses = 'border border-tint-600 hover:border-primary text-tint-600 hover:text-primary';
             break;
         case 'text':
-            colorClasses = 'text-gray-500 hover:text-blue-500';
+            colorClasses = 'text-gray-500 hover:text-primary';
             break;
             
         default:
@@ -59,8 +62,28 @@ const Button: React.FC<ButtonProps> = ({
 
     const classes = `inline-block rounded-[8px] font-semibold focus:outline-none transition-all duration-200 ease-in-out ${colorClasses} ${sizeClasses} ${disabledClasses} ${className}`;
 
+    const [isTouched, setIsTouched] = useState(false);
+
+    const handleTouchStart = () => {
+        setIsTouched(true);
+    };
+
+    const handleTouchEnd = () => {
+        setIsTouched(false);
+        handleClick();
+    };
+
+    const touchStyles = isTouched ? { backgroundColor: 'primaryDark'} : {backgroundColor: 'primary' }
+
     return (
-        <button className={classes} disabled={disabled} {...rest}>
+        <button 
+          className={classes}
+          disabled={disabled}
+          style={touchStyles}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onClick={handleClick}
+          {...rest}>
             {children}
         </button>
     );
