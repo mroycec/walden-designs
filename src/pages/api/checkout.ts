@@ -4,13 +4,13 @@
 // Import your API response interface
 import { NextApiRequest, NextApiResponse } from 'next';
 import { Product } from '@/interfaces/Product'
+import { stripe } from '@/layout';
 
 // Define the API route handler
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Product[]>) {
     // Set appropriate headers if needed (e.g., CORS headers, content-type, etc.)
     res.setHeader('Content-Type', 'application/json');
     
-    const stripe = require('stripe')(process.env.STRIPE_API_KEY);
     try {
         const checkout = await stripe.checkout.sessions.list(req.body.cart)
         // Process the products data as needed

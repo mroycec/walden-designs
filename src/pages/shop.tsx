@@ -33,8 +33,7 @@ const Shop = () => {
     }
     return (
         <TopNavLayout>
-            <div className="w-full justify-center items-center flex flex-col space-y-8">
-                <br className="border-2 border-tint-900" />
+            <div className="w-full justify-center items-center flex flex-col">
                 <div className="overflow-y-auto overflow-x-hidden flex-wrap flex items-center justify-center">
                     {products && products.length > 0 && products.map((product, index) => (
                         <div key={index} className="text-center flex flex-col space-y-4 p-4 items-center justify-center">
@@ -45,7 +44,8 @@ const Shop = () => {
 
                     ))}
                 </div>
-                <Button className="" onClick={() => router.push('/checkout')}>Checkout</Button>
+                <br />
+                <Button onClick={() => router.push('/checkout')}>Checkout</Button>
             </div>
         </TopNavLayout>
     )

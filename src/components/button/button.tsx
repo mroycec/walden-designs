@@ -47,7 +47,6 @@ const Button: React.FC<ButtonProps> = ({
             sizeClasses = 'py-3 px-6 text-lg';
             break;
         case 'scale':
-            // Here, we use @media to set different sizes based on screen width
             sizeClasses = 'py-1 px-2 md:py-2 md:px-4 lg:py-3 lg:px-6 text-sm md:text-base lg:text-lg';
             break;
         default:
