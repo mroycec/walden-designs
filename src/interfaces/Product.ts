@@ -18,6 +18,7 @@ export interface Product {
     unit_label: any; // Replace 'any' with the actual type of 'unit_label' if known
     updated: number;
     url: any; // Replace 'any' with the actual type of 'url' if known
+    quantity: number;
 }
 
 

@@ -12,7 +12,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     res.setHeader('Content-Type', 'application/json');
     try {
         const products = await stripe.products.list();
-        console.log(products)
         // Process the products data as needed
         return res.status(200).json(products.data);
 

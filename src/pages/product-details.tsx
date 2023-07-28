@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import Button from '@/components/button/button';
 import Image from 'next/image';
 import { StripePrice } from '@/interfaces/Price';
+import AddToCartButton from '@/components/addToCartButton/addToCartButton';
+import CartProvider from '@/contexts/cartContext';
 
 const ProductDetails = () => {
     const router = useRouter();
@@ -41,8 +43,8 @@ const ProductDetails = () => {
                     <Image src={image} alt={product.name} key={index} className="w-60" width={100} height={100} />
                 </div>
             ))}
-            <p>{'Price: ' + ((price) ? (price.unit_amount / 100).toFixed(2) : "unavailable")}</p>
-            <Button className="" onClick={() => id && get(id)}>Add to cart</Button>
+            <p>{'Price: $' + ((price) ? (price.unit_amount / 100).toFixed(2) : "unavailable")}</p>
+            {product && <AddToCartButton product={product} />}
         </GradientModal>
     )
 }

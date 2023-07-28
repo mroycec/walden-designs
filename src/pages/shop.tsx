@@ -5,6 +5,8 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import TopNavLayout from '@/components/topNavLayout/topNavLayout'
+import CartProvider from '@/contexts/cartContext'
+import CheckoutButton from '@/components/checkoutButton/checkoutButton'
 
 const Shop = () => {
     const router = useRouter()
@@ -19,18 +21,6 @@ const Shop = () => {
         setProducts(await list.json())
     }
 
-    const handleCheckout = async (cart: Product[]) => {
-        const response = await fetch('/api/checkout', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(cart)
-        })
-        if (response.status === 200) {
-            window.location.reload()
-        }
-    }
     return (
         <TopNavLayout>
             <div className="w-full justify-center items-center flex flex-col">
@@ -45,7 +35,7 @@ const Shop = () => {
                     ))}
                 </div>
                 <br />
-                <Button onClick={() => router.push('/checkout')}>Checkout</Button>
+                <CheckoutButton />
             </div>
         </TopNavLayout>
     )
