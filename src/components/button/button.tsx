@@ -1,7 +1,7 @@
 "use client"
 import React, { ButtonHTMLAttributes, useState } from 'react';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'primary' | 'secondary' | 'outline' | 'text';
     size?: 'sm' | 'md' | 'lg' | 'scale';
     disabled?: boolean;

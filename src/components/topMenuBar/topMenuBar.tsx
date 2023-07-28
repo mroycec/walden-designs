@@ -2,6 +2,8 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
+import Button from "../button/button"
+import CheckoutButton from "../checkoutButton/checkoutButton"
 
 const TopMenuBar = () => {
     const [mobileMenuHidden, setMobileMenuHidden] = useState(true)
@@ -16,12 +18,16 @@ const TopMenuBar = () => {
                         <img src="/images/cloud.png" alt="Cloud"
                             className="h-8" />
                     </Link>
-                    <nav className="hidden md:block" id="navigationMenu">
-                        <Link href="/home" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Home</Link>
-                        <Link href="/shop" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Shop</Link>
-                        <Link href="/blog" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Blog</Link>
-                        <Link href="/pre-launch" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">List</Link>
-                    </nav>
+                    <div className="flex flex-row items-center">
+                        <nav className="hidden md:block" id="navigationMenu">
+                            <Link href="/home" className="px-3 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Home</Link>
+                            <Link href="/shop" className="px-3 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Shop</Link>
+                            <Link href="/blog" className="px-3 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Blog</Link>
+                        </nav>
+                        <CheckoutButton variant='text' className="hidden md:block">
+                            <img src={'/images/cart.svg'} width={20} height={20} />
+                        </CheckoutButton>
+                    </div>
                     <button className="md:hidden px-3 py-2 font-semibold text-tint-600 hover:text-gray-900" onClick={() => setMobileMenuHidden(!mobileMenuHidden)}>Menu</button>
                 </div>
             </header >
@@ -32,6 +38,7 @@ const TopMenuBar = () => {
                         <Link href="/shop" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Shop</Link>
                         <Link href="/blog" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Blog</Link>
                         <Link href="/pre-launch" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">List</Link>
+                        <CheckoutButton variant='text' className="px-4 py-0 font-semibold text-tint-600 hover:text-tint-900 transitiona-all duration-200 ease-in-out">Cart</CheckoutButton>
                     </nav>
                 </div>
             </div>

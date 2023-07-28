@@ -1,10 +1,10 @@
 import { useCart } from '@/contexts/cartContext';
-import Button from '@/components/button/button';
+import Button, { ButtonProps } from '@/components/button/button';
 import { useEffect, useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { stripePromise } from '@/layout';
 
-const CheckoutButton = () => {
+const CheckoutButton: React.FC<ButtonProps> = ({variant, children, ...props}: ButtonProps) => {
     const { cartItems } = useCart();
 
     const handleCreateCheckoutSession = async () => {
@@ -33,8 +33,8 @@ const CheckoutButton = () => {
     };
 
     return (
-        <Button onClick={handleCreateCheckoutSession} disabled={cartItems.length === 0}>
-            Check out
+        <Button variant={variant} onClick={handleCreateCheckoutSession} disabled={cartItems.length === 0} {...props}>
+            {children ?? "Check out"}
         </Button>
     );
 };
