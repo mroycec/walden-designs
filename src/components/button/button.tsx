@@ -70,7 +70,6 @@ const Button: React.FC<ButtonProps> = ({
 
     const handleTouchEnd = () => {
         setIsTouched(false);
-        handleClick();
     };
 
     const touchStyles = isTouched ? { backgroundColor: 'primaryDark'} : {backgroundColor: 'primary' }
