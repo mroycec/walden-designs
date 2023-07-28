@@ -1,18 +1,22 @@
 // contexts/CartContext.tsx
 import { Product } from '@/interfaces/Product';
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 // Create the cart context
 interface CartContextProps {
     cartItems: Product[];
     addToCart: (item: Product) => void;
     removeFromCart: (itemId: string) => void;
+    addToCartArray: (items: Product[]) => void;
+    fetchCartFromLocalStorage: () => void;
 }
 
 const CartContext = createContext<CartContextProps>({
     cartItems: [],
     addToCart: () => { },
     removeFromCart: () => { },
+    addToCartArray: () => { },
+    fetchCartFromLocalStorage: () => { }
 });
 
 // Cart context provider component
@@ -27,8 +31,8 @@ export const useCart = () => useContext(CartContext);
 const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     const [cartItems, setCartItems] = useState<Product[]>([]);
 
-    // Function to add an item to the cart
-    const addToCart = (item: Product) => {
+    // Accepts a single Product
+    const addToCart = (item: Product): void => {
         setCartItems((prevItems) => {
             // Check if the item already exists in the cart
             const existingItem = prevItems.find((i) => i.id === item.id);
@@ -42,15 +46,56 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
         });
     };
 
+    // Accepts an array of Products
+    const addToCartArray = (items: Product[]): void => {
+        fetchCartFromLocalStorage()
+        items.forEach((item) => addToCart(item));
+    };
+
+
     // Function to remove an item from the cart
     const removeFromCart = (itemId: string) => {
+        fetchCartFromLocalStorage()
         setCartItems((prevItems) =>
             prevItems.filter((item) => item.id !== itemId)
         );
     };
 
+    const getLocalStorageCartItems = async () => {
+        const localCartItems = await localStorage.getItem('cartItems');
+        if (localCartItems) {
+            return JSON.parse(localCartItems);
+        } else {
+            return [];
+        }
+    };
+
+    useEffect(() => {
+        if (cartItems.length !== 0) {
+            const newCartItems = JSON.stringify([...cartItems]);
+            localStorage.setItem('cartItems', newCartItems);
+        }
+    }, [addToCart, removeFromCart]);
+
+    const fetchCartFromLocalStorage = async () => {
+        const localStorage = await getLocalStorageCartItems()
+        if (localStorage) {
+            setCartItems(localStorage);
+        }
+    }
+
+    useEffect(() => {
+        fetchCartFromLocalStorage();
+    }, []);
+    
     return (
-        <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
+        <CartContext.Provider value={{ 
+            cartItems, 
+            addToCart, 
+            removeFromCart, 
+            addToCartArray, 
+            fetchCartFromLocalStorage 
+        }}>
             {children}
         </CartContext.Provider>
     );

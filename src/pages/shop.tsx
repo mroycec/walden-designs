@@ -2,18 +2,21 @@
 import Button from '@/components/button/button'
 import { Product } from '@/interfaces/Product'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Image from 'next/image'
 import TopNavLayout from '@/components/topNavLayout/topNavLayout'
 import CartProvider from '@/contexts/cartContext'
 import CheckoutButton from '@/components/checkoutButton/checkoutButton'
+import { useCart } from '@/contexts/cartContext'
 
 const Shop = () => {
     const router = useRouter()
     const [products, setProducts] = useState<Product[]>([])
+    const { fetchCartFromLocalStorage } = useCart()
 
     useEffect(() => {
         getProducts()
+        fetchCartFromLocalStorage()
     }, [])
     
     const getProducts = async () => {
