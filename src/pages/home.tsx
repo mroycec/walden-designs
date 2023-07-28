@@ -1,3 +1,4 @@
+import Footer from "@/components/footer/footer"
 import HeroArea from "@/components/heroArea/heroArea"
 import TopMenuBar from "@/components/topMenuBar/topMenuBar"
 
@@ -31,6 +32,7 @@ const Landing = () => {
                         </div>
                     </div>
                 </section>
+                <Footer />
             </div>
         </div>
     )
