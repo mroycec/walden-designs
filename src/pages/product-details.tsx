@@ -42,7 +42,7 @@ const ProductDetails = () => {
                     ))}
                 <div className="flex flex-col justify-center items-center w-2/5">
                     <h2 className="text-2xl default pb-4 text-center">{product?.name ?? ""}</h2>
-                    <p>{product?.description ?? ""}</p>
+                    <p className="text-center">{product?.description ?? ""}</p>
                     <p>{'Price: $' + ((price) ? (price.unit_amount / 100).toFixed(2) : "unavailable")}</p>
                     <div className="w-full justify-center items-center flex p-4">
                         {product && <AddToCartButton product={product} />}

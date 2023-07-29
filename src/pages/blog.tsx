@@ -4,8 +4,10 @@ import { manifesto } from "@/copy"
 const BlogHome = () => {
     return (
         <TopNavLayout>
-            <h1>Hello World</h1>
-            <p>{manifesto}</p>
+            <div className="flex flex-col p-8">
+                <h1 className="text-center text-xl border-primaryDark border-b">Hello World</h1>
+                <p className="py-4 text-justify">{manifesto}</p>
+            </div>
         </TopNavLayout>
     )
 }
