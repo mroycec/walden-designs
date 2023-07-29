@@ -27,6 +27,7 @@ const Shop = () => {
     return (
         <TopNavLayout>
             <div className="w-full justify-center items-center flex flex-col">
+                <h1 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl border-primaryDark border-b w-full text-center p-4">Products</h1>
                 <div className="overflow-y-auto overflow-x-hidden flex-wrap flex items-center justify-center">
                     {products && products.length > 0 && products.map((product, index) => (
                         <div key={index} className="text-center flex flex-col space-y-4 p-4 items-center justify-center">

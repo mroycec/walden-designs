@@ -32,13 +32,13 @@ const TopMenuBar = () => {
                 </div>
             </header >
             <div className={`${mobileMenuHidden ? "hidden" : ""} bg-tint-300 md:hidden shadow-md fixed top-16 left-0 right-0 z-40`} id="mobileMenu">
-                <div className="container mx-auto h-full flex flex-col justify-between px-4 py-3">
+                <div className="container mx-auto h-full flex flex-col justify-between px-4 py-2">
                     <nav>
                         <Link href="/home" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Home</Link>
                         <Link href="/shop" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Shop</Link>
                         <Link href="/blog" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Blog</Link>
                         <Link href="/pre-launch" className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">List</Link>
-                        <CheckoutButton variant='text' className="px-4 py-0 font-semibold text-tint-600 hover:text-tint-900 transitiona-all duration-200 ease-in-out">Cart</CheckoutButton>
+                        <CheckoutButton variant='text' className="px-4 py-2 font-semibold text-tint-600 hover:text-tint-900 transitiona-all duration-200 ease-in-out">Cart</CheckoutButton>
                     </nav>
                 </div>
             </div>
