@@ -11,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     // Set appropriate headers if needed (e.g., CORS headers, content-type, etc.)
     res.setHeader('Content-Type', 'application/json');
     try {
-        const products = await stripe.products.list();
+        const products = await stripe.products.list({active: true});
         // Process the products data as needed
         return res.status(200).json(products.data);
 

@@ -10,15 +10,17 @@ const TopMenuBar = () => {
     return (
         <>
             <header className="bg-tint-200 shadow-md fixed top-0 left-0 right-0 z-50 h-16" >
-                <div className="w-screen h-full absolute items-center justify-center flex -z-50">
-                    <h1 className="text-2xl text-center">Walden Designs</h1>
+                <div className="w-screen h-full absolute items-center justify-center flex">
+                    <Link href="/home" className="block">
+                        <h1 className="text-2xl text-center">Walden Designs</h1>
+                    </Link>
                 </div>
                 <div className="h-full w-full flex items-center justify-between p-4">
-                    <Link href="/home" className="block">
+                    <Link href="/log-in" className="block z-10">
                         <img src="/images/cloud.png" alt="Cloud"
                             className="h-8" />
                     </Link>
-                    <div className="flex flex-row items-center">
+                    <div className="flex flex-row items-center z-10">
                         <nav className="hidden md:block" id="navigationMenu">
                             <Link href="/home" className="px-3 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Home</Link>
                             <Link href="/shop" className="px-3 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Shop</Link>
