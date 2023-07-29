@@ -1,12 +1,10 @@
 import { useRouter } from 'next/router'
-import GradientModal from '@/components/gradientModal/gradientModal'
 import { Product } from '@/interfaces/Product';
 import { useEffect, useState } from 'react';
-import Button from '@/components/button/button';
 import Image from 'next/image';
 import { StripePrice } from '@/interfaces/Price';
 import AddToCartButton from '@/components/addToCartButton/addToCartButton';
-import CartProvider from '@/contexts/cartContext';
+import TopNavLayout from '@/components/topNavLayout/topNavLayout';
 
 const ProductDetails = () => {
     const router = useRouter();
@@ -35,17 +33,24 @@ const ProductDetails = () => {
     }, [id, product])
 
     return (
-        <GradientModal>
-            <h1 className="text-4xl default p-8 text-center">Walden Designs</h1>
-            <h2 className="text-2xl default pb-4 text-center">{product && product.name}</h2>
-            {product && product.images.map((image, index) => (
-                <div key={index}>
-                    <Image src={image} alt={product.name} key={index} className="w-60" width={100} height={100} />
+        <TopNavLayout>
+            <div className="flex flex-row justify-center items-center w-full h-full">
+                    {product && product.images.map((image, index) => (
+                        <div key={index} className="next-image-wrapper relative w-full h-full w-max-full h-max-full aspect-auto m-8">
+                            <Image src={image} alt={product.name} key={index} fill={true} className="next-image object-contain" />
+                        </div>
+                    ))}
+                <div className="flex flex-col justify-center items-center w-2/5">
+                    <h2 className="text-2xl default pb-4 text-center">{product?.name ?? ""}</h2>
+                    <p>{product?.description ?? ""}</p>
+                    <p>{'Price: $' + ((price) ? (price.unit_amount / 100).toFixed(2) : "unavailable")}</p>
+                    <div className="w-full justify-center items-center flex p-4">
+                        {product && <AddToCartButton product={product} />}
+                    </div>
                 </div>
-            ))}
-            <p>{'Price: $' + ((price) ? (price.unit_amount / 100).toFixed(2) : "unavailable")}</p>
-            {product && <AddToCartButton product={product} />}
-        </GradientModal>
+          </div>
+
+        </TopNavLayout>
     )
 }
 

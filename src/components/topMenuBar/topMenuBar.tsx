@@ -25,7 +25,7 @@ const TopMenuBar = () => {
                             <Link href="/blog" className="px-3 py-2 font-semibold text-tint-600 hover:text-tint-900 transition-all duration-200 ease-in-out">Blog</Link>
                         </nav>
                         <CheckoutButton variant='text' className="hidden md:block">
-                            <img src={'/images/cart.svg'} width={20} height={20} />
+                            <img src={'/images/cart.svg'} width={20} height={20} alt="shopping cart"/>
                         </CheckoutButton>
                     </div>
                     <button className="md:hidden px-3 py-2 font-semibold text-tint-600 hover:text-gray-900" onClick={() => setMobileMenuHidden(!mobileMenuHidden)}>Menu</button>
