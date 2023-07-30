@@ -7,7 +7,7 @@ const ForgotPassword = () => {
     const router = useRouter()
     return (
         <GradientModal>
-            <form className="self-stretch grow shrink basis-0 flex-col justify-center items-center gap-2.5 flex">
+            <form method="POST" className="self-stretch grow shrink basis-0 flex-col justify-center items-center gap-2.5 flex">
                 <div className="self-stretch text-center text-5xl font-normal pb-14">🐌<br />Walden Designs</div>
                 <p className="text-tint-500 p-4">Send email to reset password:</p>
                 <div className="w-full md:w-4/5 lg:w-3/5 xl:w-2/5 flex space-y-8 px-8 flex-col items-center justify-center">
