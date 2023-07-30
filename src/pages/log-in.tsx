@@ -8,7 +8,7 @@ const Login = () => {
 
     return (
         <GradientModal>
-            <form className="self-stretch grow shrink basis-0 flex-col justify-center items-center gap-2.5 flex">
+            <form method="POST" className="self-stretch grow shrink basis-0 flex-col justify-center items-center gap-2.5 flex">
                 <div className="text-center text-5xl pb-12">🐌<br />Walden Designs</div>
                 <div className="w-full md:w-4/5 lg:w-3/5 xl:w-2/5 flex space-y-8 px-8 flex-col items-center justify-center">
                     <Input placeholder="Email" className="w-full" type="email" required />
