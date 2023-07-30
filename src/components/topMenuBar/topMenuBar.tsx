@@ -30,7 +30,7 @@ const TopMenuBar = () => {
                             <img src={'/images/cart.svg'} width={20} height={20} alt="shopping cart"/>
                         </CheckoutButton>
                     </div>
-                    <button className="md:hidden px-3 py-2 font-semibold text-tint-600 hover:text-gray-900" onClick={() => setMobileMenuHidden(!mobileMenuHidden)}>Menu</button>
+                    <button className="md:hidden px-3 py-2 font-semibold text-tint-600 hover:text-gray-900 z-10" onClick={() => setMobileMenuHidden(!mobileMenuHidden)}>Menu</button>
                 </div>
             </header >
             <div className={`${mobileMenuHidden ? "hidden" : ""} bg-tint-300 md:hidden shadow-md fixed top-16 left-0 right-0 z-40`} id="mobileMenu">
