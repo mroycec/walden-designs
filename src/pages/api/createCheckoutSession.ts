@@ -20,7 +20,7 @@ export default async function handler(
             mode: 'payment',
             success_url: 'https://your-website.com/success', // Replace with your success URL
             cancel_url: 'https://walden-designs.netlify.app/order-confirmation', // Replace with your cancel URL
-            expires_at: Math.floor(Date.now() / 1000) + (3600 * 1), // Configured to expire after 15 minutes
+            expires_at: Math.floor(Date.now() / 1000) + (3600 * 1), // Configured to expire after 1 hour
         });
         console.log(await session.id)
         res.status(200).json({ sessionId: session.id });
