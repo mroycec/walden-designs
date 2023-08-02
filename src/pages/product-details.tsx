@@ -34,12 +34,14 @@ const ProductDetails = () => {
 
     return (
         <TopNavLayout>
-            <div className="flex flex-row justify-center items-center w-full h-full">
+            <div className="flex flex-col md:flex-row justify-center items-center w-full h-full space-y-4">
+                <div className="flex h-full w-full py-8 px-4">
                     {product && product.images.map((image, index) => (
                         <div key={index} className="next-image-wrapper relative w-full h-full w-max-full h-max-full aspect-auto m-8">
                             <Image src={image} alt={product.name} key={index} fill={true} className="next-image object-contain" />
                         </div>
                     ))}
+                </div>
                 <div className="flex flex-col justify-center items-center w-2/5">
                     <h2 className="text-2xl default pb-4 text-center">{product?.name ?? ""}</h2>
                     <p className="text-center">{product?.description ?? ""}</p>

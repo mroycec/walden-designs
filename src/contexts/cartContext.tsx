@@ -52,13 +52,24 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
         items.forEach((item) => addToCart(item));
     };
 
-
     // Function to remove an item from the cart
     const removeFromCart = (itemId: string) => {
-        fetchCartFromLocalStorage()
-        setCartItems((prevItems) =>
-            prevItems.filter((item) => item.id !== itemId)
-        );
+        setCartItems((prevItems) => {
+            const existingItem = prevItems.find((i) => i.id === itemId);
+            if (existingItem) {
+                if (existingItem.quantity > 1) {
+                    // If there is more than 1 of the item, reduce the quantity by 1
+                    return prevItems.map((i) =>
+                        i.id === itemId ? { ...i, quantity: i.quantity - 1 } : i
+                    );
+                } else {
+                    // If there is only 1 of the item, remove it from the cart
+                    return prevItems.filter((i) => i.id !== itemId);
+                }
+            } else {
+                return prevItems;
+            }
+        });
     };
 
     const getLocalStorageCartItems = async () => {
