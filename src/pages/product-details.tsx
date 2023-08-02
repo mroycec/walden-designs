@@ -6,6 +6,7 @@ import { StripePrice } from '@/interfaces/Price';
 import AddToCartButton from '@/components/addToCartButton/addToCartButton';
 import TopNavLayout from '@/components/topNavLayout/topNavLayout';
 import Button from '@/components/button/button';
+import CheckoutButton from '@/components/checkoutButton/checkoutButton';
 
 const ProductDetails = () => {
     const router = useRouter();
@@ -53,6 +54,7 @@ const ProductDetails = () => {
                     <div className="w-full justify-center items-center flex p-4">
                         {product && <AddToCartButton product={product} />}
                     </div>
+                    <CheckoutButton />
                 </div>
           </div>
 

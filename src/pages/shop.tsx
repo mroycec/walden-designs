@@ -38,8 +38,6 @@ const Shop = () => {
 
                     ))}
                 </div>
-                <br />
-                <CheckoutButton />
             </div>
         </TopNavLayout>
     )
