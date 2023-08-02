@@ -28,7 +28,6 @@ export default function Home() {
                 form="email-list"
                 type="email"
                 name="email"
-                label="Email"
                 placeholder='Email'
                 value={email}
                 setValue={setEmail} />
