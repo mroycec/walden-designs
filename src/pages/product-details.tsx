@@ -36,8 +36,8 @@ const ProductDetails = () => {
 
     return (
         <TopNavLayout>
-            <div className="flex flex-start items-center w-full px-4 py-2">
-                <Button onClick={() => router.back()}>Back</Button>
+            <div className="flex flex-row justify-start items-center w-full px-4 py-2">
+                <Button variant="secondary" onClick={() => router.back()}>Back</Button>
             </div>
             <div className="flex flex-col md:flex-row justify-center items-center w-full h-full space-y-4">
                 <div className="flex h-full w-full py-8 px-4">
@@ -48,7 +48,7 @@ const ProductDetails = () => {
                     ))}
                 </div>
                 <div className="flex flex-col justify-center items-center md:w-3/5 lg:w-2/5">
-                    <h2 className="text-2xl default pb-4 text-center">{product?.name ?? ""}</h2>
+                    <h2 className="text-xl md:text-2xl default text-center items-center mb-4">{product?.name ?? ""}</h2>
                     <p className="text-center">{product?.description ?? ""}</p>
                     <p>{'Price: $' + ((price) ? (price.unit_amount / 100).toFixed(2) : "unavailable")}</p>
                     <div className="w-full justify-center items-center flex p-4">

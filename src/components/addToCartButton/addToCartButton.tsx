@@ -36,11 +36,11 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({product}) => {
             </Button>
         ) : ( 
                 <div className="flex flex-row justify-items items-center">
-                    <Button onClick={handleRemoveFromCart}>
+                    <Button variant="secondary" onClick={handleRemoveFromCart}>
                         - 1
                     </Button>
                     <div className="font-bold text-tint-700 px-2">{quantity} in cart</div>
-                    <Button onClick={handleAddToCart}>
+                    <Button variant="secondary" onClick={handleAddToCart}>
                         + 1
                     </Button>
                 </div>
