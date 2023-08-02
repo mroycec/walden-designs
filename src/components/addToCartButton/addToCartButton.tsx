@@ -40,7 +40,6 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({product}) => {
                         - 1
                     </Button>
                     <div className="font-bold text-tint-700 px-2">{quantity} in cart</div>
-                    <br />
                     <Button onClick={handleAddToCart}>
                         + 1
                     </Button>

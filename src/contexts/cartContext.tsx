@@ -53,7 +53,8 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     };
 
     // Function to remove an item from the cart
-    const removeFromCart = (itemId: string) => {
+    const removeFromCart = async (itemId: string) => {
+        await fetchCartFromLocalStorage()
         setCartItems((prevItems) => {
             const existingItem = prevItems.find((i) => i.id === itemId);
             if (existingItem) {
@@ -82,10 +83,8 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     };
 
     useEffect(() => {
-        if (cartItems.length !== 0) {
-            const newCartItems = JSON.stringify([...cartItems]);
-            localStorage.setItem('cartItems', newCartItems);
-        }
+        const newCartItems = JSON.stringify([...cartItems]);
+        localStorage.setItem('cartItems', newCartItems);
     }, [addToCart, removeFromCart]);
 
     const fetchCartFromLocalStorage = async () => {

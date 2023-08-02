@@ -42,7 +42,7 @@ const ProductDetails = () => {
                         </div>
                     ))}
                 </div>
-                <div className="flex flex-col justify-center items-center w-2/5">
+                <div className="flex flex-col justify-center items-center md:w-3/5 lg:w-2/5">
                     <h2 className="text-2xl default pb-4 text-center">{product?.name ?? ""}</h2>
                     <p className="text-center">{product?.description ?? ""}</p>
                     <p>{'Price: $' + ((price) ? (price.unit_amount / 100).toFixed(2) : "unavailable")}</p>
