@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { StripePrice } from '@/interfaces/Price';
 import AddToCartButton from '@/components/addToCartButton/addToCartButton';
 import TopNavLayout from '@/components/topNavLayout/topNavLayout';
+import Button from '@/components/button/button';
 
 const ProductDetails = () => {
     const router = useRouter();
@@ -34,6 +35,9 @@ const ProductDetails = () => {
 
     return (
         <TopNavLayout>
+            <div className="flex flex-start items-center w-full px-4 py-2">
+                <Button onClick={() => router.back()}>Back</Button>
+            </div>
             <div className="flex flex-col md:flex-row justify-center items-center w-full h-full space-y-4">
                 <div className="flex h-full w-full py-8 px-4">
                     {product && product.images.map((image, index) => (
