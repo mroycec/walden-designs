@@ -18,7 +18,7 @@ export default async function handler(
                 quantity: item.quantity
             })),
             mode: 'payment',
-            success_url: 'https://your-website.com/order-confirmation', // Replace with your success URL
+            success_url: 'https://walden-designs.netlify.app/order-confirmation', // Replace with your success URL
             cancel_url: 'https://walden-designs.netlify.app/shop', // Replace with your cancel URL
             expires_at: Math.floor(Date.now() / 1000) + (3600 * 1), // Configured to expire after 1 hour
         });
