@@ -11,7 +11,7 @@ export default function Home() {
     <main>
       <Head>
         <title>Walden Designs 🐌</title>
-        <meta name="description" content="Walden Design pre-launch site" />
+        <meta name="description" content="An eCommerce site with a cart, landing, checkout, and email list sign-up. Inventory is fetched from Stripe and displayed in the store." />
       </Head>
       <div className="fixed w-screen h-screen bg-cover bg-bottom bg-fog">
         <div className="fixed z-50 inset-0 flex items-center justify-center space-y-4">

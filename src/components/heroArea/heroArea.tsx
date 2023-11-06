@@ -22,7 +22,7 @@ const HeroArea = () => {
                         </div>
                     </div>
                     <div className="w-full md:w-1/2 p-4 pt-8 md:p-4 ">
-                        <Image src="/images/wd-mood-board-1.png" alt="Cloud" className="mx-auto p-auto w-[80%]" width={100} height={100} />
+                        <Image src="/images/wd-mood-board-1.jpg" alt="Cloud" className="mx-auto p-auto w-[80%]" width={100} height={100} />
                     </div>
                 </div>
             </div>
